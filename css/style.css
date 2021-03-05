@@ -1,0 +1,151 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.banner-container {
+  background-color: rgb(175, 175, 175);
+}
+.banner-colum {
+  background-color: rgb(116, 116, 116);
+  margin: auto;
+  box-shadow: 3px 3px azure;
+}
+.navbar-container {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 3;
+}
+.about-container {
+  background-color: darkcyan;
+  text-align: justify;
+}
+.education-container {
+  background-color: gainsboro;
+  padding: 15px;
+}
+.education-section {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(52, 100, 136, 1) 100%
+  );
+  padding: 10px;
+  margin: auto;
+  max-width: 30%;
+  /* background-color: silver; */
+  /* color: indianred; */
+  color: black;
+  border: 2px solid white;
+  font-weight: bold;
+}
+.circle {
+  background-color: indianred;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.edu-card {
+  background-color: whitesmoke;
+  text-align: justify;
+  padding: 15px;
+  margin-left: 20px;
+}
+.edu-card-detail {
+  margin: 15px;
+}
+.edu-title {
+  font-family: "Cairo", sans-serif;
+}
+.project-title {
+  background-color: slateblue;
+  max-width: 30%;
+  margin: auto;
+  padding: 10px;
+  border: 2px solid white;
+}
+
+.project-container {
+  background-color: skyblue;
+}
+.activity-container {
+  background-color: #574b90;
+}
+.activity-container a {
+  text-decoration: none;
+  color: black;
+}
+.activity-title {
+  background-color: #4b4b4bab;
+  padding: 10px;
+  max-width: 30%;
+  margin: auto;
+  border: 2px solid whitesmoke;
+}
+.ieee-section {
+  display: flex;
+  margin-left: 35%;
+  align-items: center;
+}
+.ieee-section img {
+  height: 100px;
+  width: 100px;
+}
+.ieee-content {
+  margin-left: 50px;
+  color: white;
+}
+.gallery-title {
+  background-color: #ff4d4d;
+  padding: 10px;
+  max-width: 30%;
+  margin: auto;
+  border: 2px solid black;
+}
+
+.connect-container {
+  background-color: #747d8c;
+}
+
+.inner-form {
+  background-color: #a4b0be;
+  border-color: #4b4b4b;
+}
+.button {
+  background-color: #485460;
+  color: white;
+}
+.button:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.footer-container {
+  background-color: #45aaf2;
+}
+
+.social-links {
+  font-size: 45px;
+  color: white;
+  text-decoration: none;
+  transition: 0.6s;
+  margin: 10px;
+}
+.social-links a {
+  color: white;
+  padding: 20px;
+}
+.social-links a:hover {
+  color: #485460;
+}
+@media only screen and (max-width: 425px) {
+  .education-section {
+    font-size: medium;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .edu-card {
+    margin-left: 60px;
+  }
+}
