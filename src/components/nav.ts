@@ -1,10 +1,7 @@
 export const navItems = [
-  { label: 'About', to: '/#about' },
-  { label: 'Experience', to: '/#experience' },
+  { label: 'Work', to: '/#experience' },
   { label: 'Projects', to: '/#projects' },
-  { label: 'Research', to: '/#research' },
-  { label: 'Skills', to: '/#skills' },
-  { label: 'Blog', to: '/blog' },
+  { label: 'Writing', to: '/blog' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/#contact' },
 ];

@@ -3,98 +3,67 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg: 250 250 249;
+    --surface: 255 255 255;
+    --fg: 24 24 27;
+    --muted: 82 82 91;
+    --subtle: 141 141 150;
+    --line: 228 228 231;
+    --accent: 13 148 136;
+    color-scheme: light;
+  }
+  .dark {
+    --bg: 12 12 14;
+    --surface: 20 20 23;
+    --fg: 244 244 245;
+    --muted: 161 161 170;
+    --subtle: 113 113 122;
+    --line: 39 39 42;
+    --accent: 45 212 191;
+    color-scheme: dark;
+  }
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-    color-scheme: dark;
   }
   body {
-    @apply bg-ink-950 text-slate-300 font-sans antialiased;
+    @apply bg-bg font-sans text-fg antialiased transition-colors duration-300;
+    font-feature-settings: 'cv11', 'ss01';
   }
   ::selection {
-    background: rgba(34, 211, 238, 0.3);
-    color: #fff;
+    background: rgb(var(--accent) / 0.2);
   }
   :focus-visible {
-    @apply outline-none ring-2 ring-volt/70 ring-offset-2 ring-offset-ink-950 rounded;
-  }
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #05070d;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 8px;
-    border: 2px solid #05070d;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    @apply rounded-sm outline-none ring-2 ring-accent/60 ring-offset-2 ring-offset-bg;
   }
 }
 
 @layer components {
-  /* Subtle engineering-paper grid */
-  .bg-grid {
-    background-image:
-      linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-    background-size: 44px 44px;
+  .container-narrow {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-6;
   }
-  .bg-dots {
-    background-image: radial-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px);
-    background-size: 22px 22px;
+  .container-wide {
+    @apply mx-auto w-full max-w-5xl px-5 sm:px-6;
+  }
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-subtle;
+  }
+  .link {
+    @apply bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size,color] duration-300 hover:bg-[length:100%_1px] hover:text-fg;
+    background-image: linear-gradient(currentColor, currentColor);
+  }
+  .tab {
+    @apply rounded-full px-3 py-1 text-sm text-muted transition-colors hover:text-fg;
+  }
+  .tab-active {
+    @apply bg-fg/[0.06] text-fg dark:bg-fg/10;
   }
   .card {
-    @apply relative rounded-2xl border border-white/[0.07] bg-ink-900/70 backdrop-blur-sm transition-colors duration-300;
+    @apply rounded-xl border border-line bg-surface transition-all duration-300;
   }
   .card-hover {
-    @apply hover:border-volt/30 hover:bg-ink-850/80;
-  }
-  /* Corner brackets — a little HUD detail */
-  .hud::before,
-  .hud::after {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border-color: rgba(34, 211, 238, 0.55);
-    pointer-events: none;
-    transition: all 0.3s ease;
-  }
-  .hud::before {
-    top: -1px;
-    left: -1px;
-    border-top-width: 2px;
-    border-left-width: 2px;
-    border-top-left-radius: 1rem;
-  }
-  .hud::after {
-    bottom: -1px;
-    right: -1px;
-    border-bottom-width: 2px;
-    border-right-width: 2px;
-    border-bottom-right-radius: 1rem;
-  }
-  .chip {
-    @apply inline-flex items-center gap-1.5 rounded-md border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 font-mono text-[11px] text-slate-400;
-  }
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50;
-  }
-  .btn-primary {
-    @apply btn bg-volt text-ink-950 hover:bg-cyan-300 shadow-[0_0_24px_-6px_rgba(34,211,238,0.7)];
-  }
-  .btn-ghost {
-    @apply btn border border-white/10 bg-white/[0.03] text-slate-200 hover:border-volt/40 hover:text-white;
-  }
-  .text-gradient {
-    @apply bg-gradient-to-r from-cyan-300 via-sky-400 to-lime-300 bg-clip-text text-transparent;
-  }
-  .link-underline {
-    @apply underline decoration-volt/40 underline-offset-4 hover:decoration-volt;
+    @apply hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-[0_8px_30px_-12px_rgb(0_0_0/0.15)];
   }
 }
 

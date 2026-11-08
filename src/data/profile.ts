@@ -188,7 +188,7 @@ export type Project = {
   summary: string;
   highlights: string[];
   tech: string[];
-  image: string;
+  image?: string;
   featured?: boolean;
   links: { live?: string; github?: string; caseStudy?: string; paper?: string };
 };
@@ -207,7 +207,7 @@ export const projects: Project[] = [
       'Print on the go: Upload → OTP → Print',
     ],
     tech: ['Django', 'MySQL', 'Bootstrap', 'IoT Kiosk', 'Linux'],
-    image: '/images/placeholders/project-1.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     featured: true,
     links: { live: 'https://uprintbd.com', github: '', caseStudy: '' },
   },
@@ -223,7 +223,7 @@ export const projects: Project[] = [
       'Running in live production environments',
     ],
     tech: ['Django', 'React', 'MySQL', 'MQTT', 'DigitalOcean'],
-    image: '/images/placeholders/project-2.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     featured: true,
     links: { live: '', caseStudy: '' },
   },
@@ -235,7 +235,7 @@ export const projects: Project[] = [
       'A scalable monitoring platform for factory water treatment plants with real-time dashboards that improve operational oversight.',
     highlights: ['Live sensor dashboards', 'Scalable backend architecture', 'Operational alerts & oversight'],
     tech: ['Django', 'React', 'MQTT', 'MySQL'],
-    image: '/images/placeholders/project-3.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     featured: true,
     links: { live: '', caseStudy: '' },
   },
@@ -250,7 +250,7 @@ export const projects: Project[] = [
       'Asynchronous one-click refresh to optimise API calls',
     ],
     tech: ['Android', 'Gemini API', 'Material 3', 'Offline-first'],
-    image: '/images/placeholders/project-4.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     featured: true,
     links: { github: '', live: '' },
   },
@@ -265,7 +265,7 @@ export const projects: Project[] = [
       'Automated grading and reporting',
     ],
     tech: ['Python', 'Django', 'JavaScript', 'jQuery', 'Bootstrap', 'MySQL'],
-    image: '/images/placeholders/project-5.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     featured: true,
     links: { github: '', live: '' },
   },
@@ -281,7 +281,7 @@ export const projects: Project[] = [
       'Improved diagnostic efficiency via preprocessing and model optimisation',
     ],
     tech: ['Python', 'TensorFlow', 'CNN', 'Google Colab', 'Kaggle'],
-    image: '/images/placeholders/project-6.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     featured: true,
     links: { paper: '', github: '' },
   },
@@ -292,7 +292,7 @@ export const projects: Project[] = [
     summary: 'Poster research on traceable food supply chains using blockchain — 2nd Runner-Up at IEEE Day 2019.',
     highlights: ['Supply-chain traceability model', 'Presented at IEEE Day 2019'],
     tech: ['Blockchain', 'Research'],
-    image: '/images/placeholders/project-2.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     links: { paper: '' },
   },
   {
@@ -301,7 +301,7 @@ export const projects: Project[] = [
     summary: 'A simple ed-tech course-selling platform.',
     highlights: [],
     tech: ['HTML', 'CSS', 'Bootstrap'],
-    image: '/images/placeholders/project-3.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     links: { github: '', live: '' },
   },
   {
@@ -310,7 +310,7 @@ export const projects: Project[] = [
     summary: 'Pick your best five football players — an interactive team-builder.',
     highlights: [],
     tech: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
-    image: '/images/placeholders/project-4.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     links: { github: '', live: '' },
   },
   {
@@ -319,7 +319,7 @@ export const projects: Project[] = [
     summary: 'A news portal powered by an open news API.',
     highlights: [],
     tech: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'REST API'],
-    image: '/images/placeholders/project-5.svg',
+    image: '', // optional: '/images/projects/<name>.png'
     links: { github: '', live: '' },
   },
 ];

@@ -9,8 +9,8 @@ export default function Reveal({ children, className, delay = 0 }: { children: R
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={clsx(
-        'transition-all duration-700 ease-out',
-        inView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+        'transition-all duration-700 ease-[cubic-bezier(.2,.7,.2,1)]',
+        inView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0',
         className,
       )}
     >

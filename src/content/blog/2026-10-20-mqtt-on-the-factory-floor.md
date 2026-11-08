@@ -3,7 +3,6 @@ title: MQTT on the factory floor — notes from building real-time SCADA dashboa
 date: 2026-10-20
 category: Article
 tags: [iot, mqtt, scada, django]
-cover: /images/placeholders/blog-2.svg
 excerpt: A template article showing how code, tables and diagrams render. Replace it with your own write-up.
 sample: true
 ---

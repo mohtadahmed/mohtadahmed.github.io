@@ -10,8 +10,8 @@ const BlogPost = lazy(() => import('@/pages/BlogPost'));
 const Gallery = lazy(() => import('@/pages/Gallery'));
 
 const Loading = () => (
-  <div className="flex min-h-[70vh] items-center justify-center font-mono text-sm text-slate-500">
-    <span className="text-volt">&gt;</span>&nbsp;loading<span className="animate-blink">_</span>
+  <div className="flex min-h-[70vh] items-center justify-center font-mono text-sm text-subtle">
+    <span className="text-accent">&gt;</span>&nbsp;loading<span className="animate-blink">_</span>
   </div>
 );
 
