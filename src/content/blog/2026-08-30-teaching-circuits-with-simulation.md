@@ -3,7 +3,6 @@ title: Teaching circuits with simulation first
 date: 2026-08-30
 category: Tutorial
 tags: [teaching, ltspice, circuits]
-cover: /images/placeholders/blog-4.svg
 excerpt: A tutorial template — use it for step-by-step guides from your classes or projects.
 sample: true
 ---

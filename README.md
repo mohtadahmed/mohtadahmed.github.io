@@ -1,7 +1,7 @@
 # mohtadahmed.me
 
 Personal portfolio of **Mohtad Ahmed**: software engineer, EEE researcher and educator.
-Built with React + TypeScript + Vite + Tailwind CSS and deployed to GitHub Pages at [mohtadahmed.me](https://mohtadahmed.me).
+Minimal, content-first design with light/dark themes. Built with React + TypeScript + Vite + Tailwind CSS and deployed to GitHub Pages at [mohtadahmed.me](https://mohtadahmed.me).
 
 ## Pages
 

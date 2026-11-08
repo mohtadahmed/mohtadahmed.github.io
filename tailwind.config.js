@@ -1,7 +1,10 @@
 import typography from '@tailwindcss/typography';
 
+const v = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
@@ -10,21 +13,25 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       colors: {
-        ink: { 950: '#05070d', 900: '#0a0f1a', 850: '#0e1522', 800: '#131b2b', 700: '#1e293b' },
-        volt: { DEFAULT: '#22d3ee', 400: '#22d3ee', 500: '#06b6d4' },
-        amp: { DEFAULT: '#a3e635', 400: '#a3e635' },
+        bg: v('bg'),
+        surface: v('surface'),
+        fg: v('fg'),
+        muted: v('muted'),
+        subtle: v('subtle'),
+        line: v('line'),
+        accent: v('accent'),
       },
       keyframes: {
+        fadeUp: { from: { opacity: '0', transform: 'translateY(8px)' }, to: { opacity: '1', transform: 'none' } },
+        draw: { from: { strokeDashoffset: '1' }, to: { strokeDashoffset: '0' } },
+        pulseDot: { '0%,100%': { opacity: '.4' }, '50%': { opacity: '1' } },
         blink: { '0%,49%': { opacity: '1' }, '50%,100%': { opacity: '0' } },
-        pulseDot: { '0%,100%': { opacity: '.35' }, '50%': { opacity: '1' } },
-        flow: { to: { strokeDashoffset: '-200' } },
-        fadeUp: { from: { opacity: '0', transform: 'translateY(16px)' }, to: { opacity: '1', transform: 'none' } },
       },
       animation: {
-        blink: 'blink 1s step-end infinite',
+        fadeUp: 'fadeUp .7s cubic-bezier(.2,.7,.2,1) both',
+        draw: 'draw 2.2s cubic-bezier(.6,.1,.2,1) both',
         pulseDot: 'pulseDot 2.4s ease-in-out infinite',
-        flow: 'flow 6s linear infinite',
-        fadeUp: 'fadeUp .6s ease-out both',
+        blink: 'blink 1.1s step-end infinite',
       },
     },
   },

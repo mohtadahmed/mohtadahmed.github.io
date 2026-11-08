@@ -3,7 +3,6 @@ title: Hello, world — why I'm starting this blog
 date: 2026-11-01
 category: Blog
 tags: [personal, writing]
-cover: /images/placeholders/blog-1.svg
 excerpt: A first post to kick things off — what I plan to write about at the crossroads of software, electronics and teaching.
 sample: true
 ---

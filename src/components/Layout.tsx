@@ -26,6 +26,7 @@ function ScrollManager() {
 
 export default function Layout() {
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -40,12 +41,13 @@ export default function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded focus:bg-volt focus:px-3 focus:py-2 focus:text-ink-950">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded focus:bg-fg focus:px-3 focus:py-2 focus:text-bg">
         Skip to content
       </a>
       <ScrollManager />
       <Navbar onOpenPalette={() => setPaletteOpen(true)} />
-      <main id="main" className="flex-1">
+      {/* key on pathname replays the soft fade on each page change */}
+      <main id="main" key={pathname} className="flex-1 animate-fadeUp">
         <Outlet />
       </main>
       <Footer />

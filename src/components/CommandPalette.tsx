@@ -23,7 +23,7 @@ function Palette({ onClose }: { onClose: () => void }) {
     const go = (to: string) => () => navigate(to);
     return [
       ...homeSections.map((s) => ({ id: 's-' + s.id, label: s.label, group: 'Sections', run: go('/#' + s.id), icon: Hash })),
-      { id: 'p-blog', label: 'Blog & Writing', group: 'Pages', run: go('/blog'), icon: FileText },
+      { id: 'p-blog', label: 'Writing', group: 'Pages', run: go('/blog'), icon: FileText },
       { id: 'p-gallery', label: 'Gallery & Photography', group: 'Pages', run: go('/gallery'), icon: Image },
       ...posts.map((p) => ({
         id: 'b-' + p.slug,
@@ -82,17 +82,17 @@ function Palette({ onClose }: { onClose: () => void }) {
 
   let lastGroup = '';
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center bg-ink-950/70 px-4 pt-[12vh] backdrop-blur-sm" onClick={onClose}>
+    <div className="fixed inset-0 z-[100] flex items-start justify-center bg-black/30 px-4 pt-[12vh] backdrop-blur-sm animate-fadeUp [animation-duration:.25s]" onClick={onClose}>
       <div
         role="dialog"
         aria-modal="true"
         aria-label="Command palette"
-        className="w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-ink-900 shadow-2xl shadow-black/50"
+        className="w-full max-w-xl overflow-hidden rounded-xl border border-line bg-surface shadow-2xl"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={onKey}
       >
-        <div className="flex items-center gap-3 border-b border-white/[0.06] px-4">
-          <Search className="h-4 w-4 text-slate-500" />
+        <div className="flex items-center gap-3 border-b border-line px-4">
+          <Search className="h-4 w-4 text-subtle" />
           <input
             ref={inputRef}
             value={q}
@@ -101,37 +101,37 @@ function Palette({ onClose }: { onClose: () => void }) {
               setSel(0);
             }}
             placeholder="Jump to a section, post or link…"
-            className="h-14 flex-1 bg-transparent text-sm text-white placeholder:text-slate-500 focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+            className="h-14 flex-1 bg-transparent text-sm text-fg placeholder:text-subtle focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
           />
-          <kbd className="chip">esc</kbd>
+          <kbd className="rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-subtle">esc</kbd>
         </div>
         <ul className="max-h-[50vh] overflow-y-auto p-2">
-          {filtered.length === 0 && <li className="px-3 py-8 text-center text-sm text-slate-500">No results for “{q}”</li>}
+          {filtered.length === 0 && <li className="px-3 py-8 text-center text-sm text-subtle">No results for “{q}”</li>}
           {filtered.map((i, idx) => {
             const header = i.group !== lastGroup ? i.group : null;
             lastGroup = i.group;
             const Icon = i.icon;
             return (
               <li key={i.id}>
-                {header && <div className="px-3 pb-1 pt-3 font-mono text-[10px] uppercase tracking-widest text-slate-600">{header}</div>}
+                {header && <div className="px-3 pb-1 pt-3 font-mono text-[10px] uppercase tracking-widest text-subtle">{header}</div>}
                 <button
                   onMouseEnter={() => setSel(idx)}
                   onClick={() => run(i)}
                   className={clsx(
                     'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm',
-                    idx === sel ? 'bg-volt/10 text-white' : 'text-slate-400',
+                    idx === sel ? 'bg-fg/5 text-fg' : 'text-muted',
                   )}
                 >
-                  <Icon className={clsx('h-4 w-4 shrink-0', idx === sel ? 'text-volt' : 'text-slate-600')} />
+                  <Icon className={clsx('h-4 w-4 shrink-0', idx === sel ? 'text-accent' : 'text-subtle')} />
                   <span className="flex-1 truncate">{i.label}</span>
-                  {i.hint && <span className="font-mono text-[11px] text-slate-600">{i.hint}</span>}
-                  {idx === sel && <ArrowRight className="h-3.5 w-3.5 text-volt" />}
+                  {i.hint && <span className="font-mono text-[11px] text-subtle">{i.hint}</span>}
+                  {idx === sel && <ArrowRight className="h-3.5 w-3.5 text-accent" />}
                 </button>
               </li>
             );
           })}
         </ul>
-        <div className="flex items-center gap-4 border-t border-white/[0.06] px-4 py-2 font-mono text-[10px] text-slate-600">
+        <div className="flex items-center gap-4 border-t border-line px-4 py-2 font-mono text-[10px] text-subtle">
           <span>↑↓ navigate</span>
           <span>↵ open</span>
           <span>esc close</span>

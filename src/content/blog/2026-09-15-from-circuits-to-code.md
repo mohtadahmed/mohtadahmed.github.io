@@ -3,7 +3,6 @@ title: From circuits to code
 date: 2026-09-15
 category: Thought
 tags: [career, eee, software]
-cover: /images/placeholders/blog-3.svg
 excerpt: A short reflection template — how an EEE background shapes the way I write software.
 sample: true
 ---

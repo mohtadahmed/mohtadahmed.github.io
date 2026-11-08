@@ -29,7 +29,7 @@ function Lightbox({ items, index, onClose, onNav }: { items: GalleryItem[]; inde
       role="dialog"
       aria-modal="true"
       aria-label={item.title}
-      className="fixed inset-0 z-[100] flex flex-col bg-ink-950/95 backdrop-blur-md"
+      className="fixed inset-0 z-[100] flex flex-col bg-zinc-950/95 backdrop-blur-md animate-fadeUp [animation-duration:.25s]"
       onClick={onClose}
       onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
       onTouchEnd={(e) => {
@@ -39,36 +39,36 @@ function Lightbox({ items, index, onClose, onNav }: { items: GalleryItem[]; inde
         touchX.current = null;
       }}
     >
-      <div className="flex items-center justify-between px-4 py-3 font-mono text-xs text-slate-400">
+      <div className="flex items-center justify-between px-4 py-3 font-mono text-xs text-zinc-400">
         <span>
           {String(index + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
         </span>
-        <button onClick={onClose} className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 hover:text-white" aria-label="Close">
+        <button onClick={onClose} className="grid h-10 w-10 place-items-center rounded-full text-zinc-400 transition hover:bg-white/10 hover:text-white" aria-label="Close">
           <X className="h-5 w-5" />
         </button>
       </div>
       <div className="relative flex flex-1 items-center justify-center px-4 sm:px-16" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={() => onNav(-1)}
-          className="absolute left-2 top-1/2 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/10 bg-ink-900/80 text-slate-300 hover:text-volt sm:grid"
+          className="absolute left-2 top-1/2 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full text-zinc-400 transition hover:bg-white/10 hover:text-white sm:grid"
           aria-label="Previous"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
-        <img key={item.src} src={item.src} alt={item.title} className="max-h-[75vh] max-w-full animate-fadeUp rounded-lg object-contain shadow-2xl" />
+        <img key={item.src} src={item.src} alt={item.title} className="max-h-[75vh] max-w-full animate-fadeUp rounded-md object-contain" />
         <button
           onClick={() => onNav(1)}
-          className="absolute right-2 top-1/2 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/10 bg-ink-900/80 text-slate-300 hover:text-volt sm:grid"
+          className="absolute right-2 top-1/2 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full text-zinc-400 transition hover:bg-white/10 hover:text-white sm:grid"
           aria-label="Next"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
       </div>
       <div className="px-4 pb-6 pt-4 text-center" onClick={(e) => e.stopPropagation()}>
-        <p className="font-semibold text-white">{item.title}</p>
-        {item.caption && <p className="mt-1 text-sm text-slate-400">{item.caption}</p>}
-        <div className="mt-2 flex flex-wrap justify-center gap-4 font-mono text-[11px] text-slate-500">
-          <span className="text-volt">{item.category}</span>
+        <p className="font-medium text-white">{item.title}</p>
+        {item.caption && <p className="mt-1 text-sm text-zinc-400">{item.caption}</p>}
+        <div className="mt-2 flex flex-wrap justify-center gap-4 font-mono text-[11px] text-zinc-500">
+          <span className="text-teal-400">{item.category}</span>
           {item.location && (
             <span className="flex items-center gap-1">
               <MapPin className="h-3 w-3" /> {item.location}
@@ -101,50 +101,40 @@ export default function Gallery() {
   const close = useCallback(() => setOpen(null), []);
 
   return (
-    <>
-      <PageHeader path="/gallery" title={<>Gallery <span className="text-slate-600">&</span> <span className="text-gradient">photography</span></>}>
-        Frames I've captured and moments worth keeping — photography, travel, events and campus life.
-        <p className="mt-3 font-mono text-xs text-slate-500">
+    <div className="container-wide pb-20">
+      <PageHeader path="/gallery" title="Gallery">
+        Photography, travel, events and campus life — moments away from the keyboard.
+        <span className="mt-2 block font-mono text-xs text-subtle">
           {gallery.length} photos · {cats.length - 1} collections
-        </p>
+        </span>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-wrap gap-2">
-          {cats.map((c) => (
-            <button
-              key={c}
-              onClick={() => setCat(c)}
-              className={clsx(
-                'rounded-full border px-3.5 py-1.5 font-mono text-xs transition',
-                cat === c ? 'border-volt/50 bg-volt/10 text-volt' : 'border-white/10 text-slate-400 hover:text-white',
-              )}
-            >
-              {c}
-              <span className="ml-1.5 text-slate-600">{c === 'All' ? gallery.length : gallery.filter((g) => g.category === c).length}</span>
-            </button>
-          ))}
-        </div>
+      <div className="-ml-3 mb-8 flex flex-wrap gap-1">
+        {cats.map((c) => (
+          <button key={c} onClick={() => setCat(c)} className={clsx('tab', cat === c && 'tab-active')} aria-pressed={cat === c}>
+            {c}
+          </button>
+        ))}
+      </div>
 
-        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {items.map((g, i) => (
-            <button
-              key={g.src + i}
-              onClick={() => setOpen(i)}
-              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-xl border border-white/[0.06] text-left"
-            >
-              <img src={g.src} alt={g.title} loading="lazy" className="w-full transition duration-500 group-hover:scale-[1.03]" />
-              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink-950/90 via-ink-950/10 to-transparent p-4 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-volt">{g.category}</span>
-                <span className="font-medium text-white">{g.title}</span>
-                {g.location && <span className="text-xs text-slate-400">{g.location}</span>}
-              </div>
-            </button>
-          ))}
-        </div>
+      <div className="columns-1 gap-3 sm:columns-2 lg:columns-3">
+        {items.map((g, i) => (
+          <button
+            key={g.src + i}
+            onClick={() => setOpen(i)}
+            className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-line text-left animate-fadeUp"
+            style={{ animationDelay: `${Math.min(i, 12) * 40}ms` }}
+          >
+            <img src={g.src} alt={g.title} loading="lazy" className="w-full transition duration-700 group-hover:scale-[1.03]" />
+            <div className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-black/70 to-transparent p-4 pt-10 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+              <span className="block text-sm font-medium text-white">{g.title}</span>
+              <span className="font-mono text-[11px] text-zinc-300">{g.category}{g.location ? ` · ${g.location}` : ''}</span>
+            </div>
+          </button>
+        ))}
       </div>
 
       {open !== null && items[open] && <Lightbox items={items} index={open} onClose={close} onNav={nav} />}
-    </>
+    </div>
   );
 }
