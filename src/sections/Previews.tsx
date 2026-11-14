@@ -15,7 +15,7 @@ const more = (to: string, label: string) => (
 export function Writing() {
   if (!posts.length) return null;
   return (
-    <Section id="writing" index="09" title="Writing" action={more('/blog', 'All posts')}>
+    <Section id="writing" index="10" title="Writing" action={more('/blog', 'All posts')}>
       <div className="divide-y divide-line">
         {posts.slice(0, 3).map((p, i) => (
           <PostRow key={p.slug} post={p} delay={i * 50} />
@@ -29,7 +29,7 @@ export function GalleryStrip() {
   const pics = gallery.slice(0, 4);
   if (!pics.length) return null;
   return (
-    <Section id="gallery-preview" index="10" title="Through the lens" action={more('/gallery', 'Gallery')}>
+    <Section id="gallery-preview" index="11" title="Through the lens" action={more('/gallery', 'Gallery')}>
       <Reveal>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {pics.map((g, i) => (

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { clsx } from 'clsx';
-import { projects, type Project } from '@/data/profile';
+import { aiAssistedNote, projects, type Project } from '@/data/profile';
 import Section from '@/components/Section';
 import Reveal from '@/components/Reveal';
 
@@ -32,7 +32,7 @@ export default function Projects() {
   const others = list.filter((p) => !p.featured);
 
   return (
-    <Section id="projects" index="03" title="Projects">
+    <Section id="projects" index="04" title="Projects">
       <Reveal className="mb-6 -ml-3 flex flex-wrap gap-1" >
         {cats.map((c) => (
           <button key={c} onClick={() => setCat(c)} className={clsx('tab', cat === c && 'tab-active')} aria-pressed={cat === c}>
@@ -62,13 +62,28 @@ export default function Projects() {
                 </ul>
               )}
               <div className="mt-auto space-y-3 pt-4">
-                <p className="font-mono text-xs text-subtle">{p.tech.join(' · ')}</p>
+                <p className="font-mono text-xs text-subtle">
+                  {p.tech.join(' · ')}
+                  {p.aiAssisted && (
+                    <span className="ml-2 whitespace-nowrap text-accent" title={aiAssistedNote}>
+                      · AI-assisted*
+                    </span>
+                  )}
+                </p>
                 <Links p={p} />
               </div>
             </article>
           </Reveal>
         ))}
       </div>
+
+      {featured.some((p) => p.aiAssisted) && (
+        <Reveal>
+          <p className="mt-4 text-xs leading-relaxed text-subtle">
+            <span className="text-accent">*</span> {aiAssistedNote}
+          </p>
+        </Reveal>
+      )}
 
       {others.length > 0 && (
         <>

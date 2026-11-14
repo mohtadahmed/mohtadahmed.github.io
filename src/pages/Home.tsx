@@ -1,6 +1,7 @@
 import Intro from '@/sections/Intro';
 import About from '@/sections/About';
 import Experience from '@/sections/Experience';
+import Products from '@/sections/Products';
 import Projects from '@/sections/Projects';
 import { Awards, Education, Leadership, Research, Skills } from '@/sections/Profile';
 import { GalleryStrip, Writing } from '@/sections/Previews';
@@ -14,6 +15,7 @@ export default function Home() {
       <Intro />
       <About />
       <Experience />
+      <Products />
       <Projects />
       <Research />
       <Skills />

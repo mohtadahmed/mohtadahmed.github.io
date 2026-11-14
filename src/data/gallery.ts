@@ -31,7 +31,7 @@ export const gallery: GalleryItem[] = [
 
   // ── Events & clubs (placeholders) ──
   { src: '/images/placeholders/event-1.svg', title: 'IEEE Day 2019 — Poster Presentation', category: 'Events', date: 'Oct 2019' },
-  { src: '/images/placeholders/event-2.svg', title: 'EEE Fest 2023 — Project Showcasing (Champion)', category: 'Events', date: 'Feb 2023' },
+  { src: '/images/placeholders/event-2.svg', title: 'EEE Fest 2023 — Project Showcasing (Champion)', category: 'Events', date: '2023' },
   { src: '/images/placeholders/event-3.svg', title: 'IEEE SB CU — Executive Committee', category: 'Clubs & Campus' },
   { src: '/images/placeholders/event-4.svg', title: 'CURI — Robotics Workshop', category: 'Clubs & Campus' },
 
