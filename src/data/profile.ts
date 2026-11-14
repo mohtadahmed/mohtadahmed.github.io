@@ -4,66 +4,58 @@
  *  To update the site, edit this file — no layout code needed.
  *
  *  • Empty string links ('') are hidden on the site automatically.
- *    Fill them in when you have the URL and they will appear.
- *  • Images go in /public/images/... and are referenced as
- *    '/images/...'. Placeholders live in /public/images/placeholders.
+ *  • Images go in /public/images/... and are referenced as '/images/...'.
  *  • Newest items first in every list.
+ *  • Keep public: professional email + public links only.
+ *    No phone numbers, home address or private details.
  * ============================================================
  */
 
 export const profile = {
   name: 'Mohtad Ahmed',
   fullName: 'Mohtad Ahmed Saeem',
-  headline: 'Software Engineer · EEE Researcher · Educator',
-  // Rotating titles in the hero terminal
+  headline: 'Engineer, Software Developer & Technology Founder',
+  // Rotating titles in the intro line
   roles: [
+    'Engineer, Software Developer & Technology Founder',
+    'Founder & CEO, UprintBD',
     'Full Stack Software Developer',
-    'IoT & Industrial Automation Engineer',
-    'Lecturer, Dept. of CSE',
-    'Founder @ UprintBD',
-    'Electrical & Electronic Engineer',
+    'Part-time Lecturer, Dept. of CSE',
   ],
   tagline:
-    'I build software that talks to hardware — real-time SCADA dashboards, MQTT-connected devices and cloud platforms that run on actual factory floors.',
+    'Building practical software products and connected systems at the intersection of software engineering, IoT, and applied AI.',
   about: [
-    'I am a Full Stack Software Developer working with Python (Django) and React, designing scalable platforms for smart automation and industrial systems. With a B.Sc. and M.Sc. in Electrical & Electronic Engineering, I sit comfortably at the boundary between code and circuits — working closely with hardware teams to bridge software with field-level devices and ensure reliable real-world deployments.',
-    'At CSI Smart Tech I lead the development lifecycle of real-time SCADA monitoring systems that run in live RMG factory production, consulting directly with enterprise clients to translate physical workflows into software. As the founder of UprintBD, I designed a distributed, cloud-based self-service printing network with IoT kiosks — an idea recognised with the ICT Innovation Grant from the Government of Bangladesh.',
-    'I also teach Electrical & Electronic Circuits as a Lecturer in the Department of CSE at IGMIS, and my research explores the convergence of IoT, AI and Embedded Systems for secure, intelligent and human-centred cyber-physical systems.',
+    'I am an Electrical and Electronic Engineering graduate, software engineer, and technology founder from Bangladesh. I build practical software products and connected systems, with experience spanning cloud applications, IoT integration, applied AI, and product development.',
+    'I am the Founder and CEO of UprintBD, a cloud-based self-service printing platform that connects users with Raspberry Pi-based printing kiosks. I developed the original platform software, the first-generation kiosk, device communication and the basic deployment infrastructure. Today UprintBD runs five outlets and serves students as well as institutional and corporate clients.',
+    'Alongside that, I work as a Full Stack Software Developer at CSI Smart Tech on software and IoT-enabled systems, including garments production monitoring, and teach Electrical & Electronic Circuits part-time in the Department of CSE at the Institute of Global Management & Information System.',
+    'I am particularly interested in secure and intelligent cyber-physical systems, Industrial IoT, and Edge AI.',
   ],
-  location: 'South Khulshi, Chittagong, Bangladesh',
+  location: 'Chittagong, Bangladesh',
   email: 'ahmedmohtad@gmail.com',
-  phone: '+880 1521 327804',
-  phoneHref: '+8801521327804',
   avatar: '/images/profile.jpg',
-  // Put your CV PDF in /public/resume/ and set e.g. '/resume/Mohtad_Ahmed_CV.pdf'
+  // Put a public CV (no referee contacts) in /public/resume/ and set e.g. '/resume/Mohtad_Ahmed_CV.pdf'
   resumeUrl: '',
-  availability: 'Open to research collaborations & interesting projects',
+  availability: 'Open to collaborations & interesting projects',
   languages: ['Bangla (Native)', 'English (Professional)'],
   hobbies: ['Photography', 'Reading books', 'Travelling'],
 };
 
+// Only GitHub and LinkedIn (plus email) are shown for now. Fill others in later if wanted.
 export const socials = {
   github: 'https://github.com/mohtadahmed',
   linkedin: 'https://www.linkedin.com/in/mohtadahmed/',
-  gitlab: 'https://gitlab.com/mohtadahmed',
-  googleScholar: '', // TODO
-  researchGate: '', // TODO
-  orcid: '', // TODO
-  facebook: '', // TODO
-  instagram: '', // TODO (great for photography)
-  x: '', // TODO
+  googleScholar: '',
+  researchGate: '',
+  orcid: '',
+  instagram: '',
+  facebook: '',
+  x: '',
 };
-
-export const stats = [
-  { value: '4+', label: 'Years building software' },
-  { value: '2', label: 'Degrees in EEE' },
-  { value: '10+', label: 'Projects shipped' },
-  { value: '6', label: 'Leadership roles' },
-];
 
 export type Experience = {
   role: string;
   org: string;
+  orgShort?: string; // used in the "Now:" line on the intro
   orgUrl?: string;
   location: string;
   start: string;
@@ -75,109 +67,126 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: 'Lecturer — Department of CSE',
-    org: 'Institute of Global Management & Information System (IGMIS)',
+    role: 'Lecturer (Part-time) — Department of CSE',
+    org: 'Institute of Global Management & Information System',
+    orgShort: 'IGMIS',
     orgUrl: '',
     location: 'Chittagong, Bangladesh',
     start: 'Oct 2025',
     end: 'Present',
     kind: 'Teaching',
     bullets: [
-      'Teach Electrical & Electronic Circuits using digital and simulation-based teaching methodologies.',
-      'Facilitate hands-on laboratory experiments, bridging theoretical concepts with practical application.',
-      'Provide academic mentoring and guidance to undergraduate students throughout their studies.',
+      'Teach Electrical & Electronic Circuits using digital and simulation-based teaching methods.',
+      'Facilitate practical laboratory experiments that connect theory with real applications.',
+      'Mentor undergraduate students.',
     ],
   },
   {
     role: 'Full Stack Software Developer',
     org: 'CSI Smart Tech',
+    orgShort: 'CSI Smart Tech',
     orgUrl: '',
     location: 'Dhaka, Bangladesh',
     start: 'Dec 2024',
     end: 'Present',
     kind: 'Industry',
     bullets: [
-      'Lead the software development lifecycle with Agile/Scrum — sprint planning, task delegation and issue tracking via ClickUp and internal ticketing.',
-      'Design, deploy and maintain real-time SCADA monitoring systems for RMG factory automation, running in live production.',
-      'Consult directly with enterprise clients across multiple factory sites to map end-to-end production workflows into software features.',
-      'Architect backend services and real-time Role-Based Access Control (RBAC) dashboards with Python, Django, React and MySQL.',
-      'Built and deployed a scalable Water Treatment Plant (WTP) monitoring system with real-time dashboards for operational oversight.',
-      'Integrate MQTT-based IoT devices with centralised servers alongside hardware, frontend and factory technical teams; manage DigitalOcean VPS production environments.',
+      'Design, develop and maintain production software with Python, Django, Django REST Framework, React and relational databases.',
+      'Develop backend REST APIs, database structures and role-based access control.',
+      'Build dashboards for real-time monitoring, reporting and operational management, including a garments production monitoring system.',
+      'Develop and maintain MQTT-based communication for IoT devices.',
+      'Deploy and maintain applications on Linux cloud servers (DigitalOcean, Nginx).',
+      'Work with frontend developers, hardware engineers and business stakeholders in an Agile workflow.',
     ],
-    tech: ['Python', 'Django', 'React', 'MySQL', 'MQTT', 'DigitalOcean', 'RBAC'],
+    tech: ['Python', 'Django', 'DRF', 'React', 'MQTT', 'Nginx', 'DigitalOcean'],
   },
   {
-    role: 'Founder & Lead Developer',
+    role: 'Founder & CEO',
     org: 'UprintBD',
+    orgShort: 'UprintBD',
     orgUrl: 'https://uprintbd.com',
     location: 'Chittagong, Bangladesh',
-    start: 'Jun 2022',
+    start: 'Jun 2023',
     end: 'Present',
     kind: 'Startup',
     bullets: [
-      'Architected and deployed a distributed, cloud-based automated printing service offering self-service public access without operator intervention.',
-      'Built a secure web platform with robust access control and automated service monitoring over cloud infrastructure.',
-      'Designed the end-to-end system integrating custom IoT kiosks with a scalable backend — upload, get an OTP, and print on the go.',
+      'Founded the business and developed the initial product concept — a cloud-based self-service printing network.',
+      'Built the original software platform, the first-generation Raspberry Pi kiosk, device communication and basic deployment infrastructure.',
+      'Implemented file-processing and print-job workflows, payment options and security features across the platform.',
+      'Now lead business operations — five outlets, corporate and university clients — while continuing to contribute to product development.',
     ],
-    tech: ['Django', 'MySQL', 'IoT Kiosk', 'Cloud', 'Payments'],
+    tech: ['Django', 'Raspberry Pi', 'MQTT', 'CUPS', 'DigitalOcean'],
   },
-  {
-    role: 'Research Associate',
-    org: 'Stellar',
-    orgUrl: '',
-    location: 'Chittagong, Bangladesh',
-    start: 'Jan 2021',
-    end: 'Dec 2023',
-    kind: 'Research',
-    bullets: [
-      'Researched flaws in existing printing systems across Bangladesh.',
-      'Developed kiosk-based automated printing solutions for public access.',
-      'Explored Unix-based printing systems with IoT-enabled printer integration.',
-    ],
-    tech: ['Linux / CUPS', 'IoT', 'Raspberry Pi'],
-  },
+  // Stellar research affiliation — hidden until role and dates are confirmed.
 ];
 
-export type Education = {
-  degree: string;
-  institution: string;
-  start: string;
-  end: string;
-  result: string;
-  note?: string;
+/* ────────────────────────────── Products ────────────────────────────── */
+
+export type Product = {
+  name: string;
+  role: string;
+  status: string; // e.g. 'Live', 'Pilot'
+  since: string;
+  summary: string;
+  url?: string;
+  metrics?: { value: string; label: string }[];
+  metricsNote?: string;
+  deployments?: { group: string; items: string[] }[];
+  features?: string[];
+  stack?: string[];
+  image?: string;
 };
 
-export const education: Education[] = [
+export const products: Product[] = [
   {
-    degree: 'M.Sc. in Electrical & Electronic Engineering',
-    institution: 'University of Chittagong',
-    start: 'Sep 2022',
-    end: 'May 2024',
-    result: 'CGPA 3.03 / 4.00',
-    note: "Thesis: Alzheimer's Disease Detection & Classification using CNN · Masters' Honorarium Scholarship",
+    name: 'UprintBD',
+    role: 'Founder & CEO',
+    status: 'Live',
+    since: 'Founded Jun 2023',
+    url: 'https://uprintbd.com',
+    summary:
+      'A cloud-based self-service printing platform. Users upload documents through the web, and Raspberry Pi-based kiosks at physical outlets print them — no operator needed. It grew out of my project “Distributed Cloud Printing Service”, which received the ICT Innovation Grant.',
+    metrics: [
+      { value: '1,280+', label: 'registered users' },
+      { value: '5', label: 'outlets with kiosks' },
+      { value: '~1,100', label: 'print jobs / month' },
+    ],
+    metricsNote: 'Founder-reported operating figures, Nov 2026. Monthly jobs vary.',
+    deployments: [
+      { group: 'Corporate', items: ['Factory Next Ltd, Dhaka', 'Stellar, Chittagong'] },
+      {
+        group: 'University of Chittagong',
+        items: ['Shaheed Abdur Rab Hall', 'Shaheed Forhad Hossen Hall', 'Deshnetri Begum Khaleda Zia Hall', 'Faculty of Engineering'],
+      },
+    ],
+    features: [
+      'Django web platform on DigitalOcean',
+      'Raspberry Pi kiosks in 3D-printed enclosures',
+      'Server ↔ kiosk communication over HTTPS and MQTT',
+      'CUPS plus a custom backend print queue',
+      'bKash and manual payments',
+      'Email-verified accounts and Google sign-in',
+    ],
+    stack: ['Django', 'Raspberry Pi', 'MQTT', 'CUPS', 'DigitalOcean', 'bKash'],
   },
   {
-    degree: 'B.Sc. in Electrical & Electronic Engineering',
-    institution: 'University of Chittagong',
-    start: 'Jan 2017',
-    end: 'Feb 2021',
-    result: 'CGPA 3.04 / 4.00',
-  },
-  {
-    degree: 'Higher Secondary Certificate (HSC)',
-    institution: 'Chittagong College, Chittagong',
-    start: '',
-    end: '2015',
-    result: 'GPA 5.00 / 5.00',
-  },
-  {
-    degree: 'Secondary School Certificate (SSC)',
-    institution: 'Nasirabad Govt. High School, Chittagong',
-    start: '',
-    end: '2013',
-    result: 'GPA 5.00 / 5.00',
+    name: 'Inventory Pro',
+    role: 'Developer',
+    status: 'Pilot',
+    since: 'Launched Nov 2026',
+    url: '',
+    summary:
+      'An inventory management product for businesses, covering stock, sales and day-to-day operations. Currently being pilot-tested by three businesses.',
+    features: [
+      'Product, category and stock management',
+      'Sales tracking and invoice generation',
+      'Company and account management',
+      'Role-based access and user management',
+    ],
   },
 ];
+
+/* ────────────────────────────── Projects ────────────────────────────── */
 
 export type ProjectCategory = 'Industrial IoT' | 'Web' | 'AI / ML' | 'Mobile' | 'Research';
 
@@ -190,288 +199,266 @@ export type Project = {
   tech: string[];
   image?: string;
   featured?: boolean;
+  aiAssisted?: boolean; // shows a short transparency note
   links: { live?: string; github?: string; caseStudy?: string; paper?: string };
 };
 
 export const projects: Project[] = [
   {
-    title: 'UprintBD — Distributed Cloud Printing Service',
+    title: 'Garments Production Monitoring System',
     category: 'Industrial IoT',
-    period: '2022 — Present',
+    period: 'CSI Smart Tech',
     summary:
-      'A secure cloud printing network with self-service IoT kiosks: upload a document from anywhere, receive an OTP, and print at the nearest kiosk. Funded by the ICT Innovation Grant.',
+      'An IoT-enabled platform for monitoring and reporting garments production — factory and line operations, production planning, output tracking and management dashboards.',
     highlights: [
-      'Web panel to upload and customise printable files',
-      'Manual and automatic payment system',
-      'Admin & outlet dashboards for monitoring',
-      'Print on the go: Upload → OTP → Print',
+      'IoT devices reporting to backend services over MQTT',
+      'Real-time production monitoring and reporting dashboards',
+      'Role-based access for management and operations teams',
     ],
-    tech: ['Django', 'MySQL', 'Bootstrap', 'IoT Kiosk', 'Linux'],
-    image: '', // optional: '/images/projects/<name>.png'
+    tech: ['Django', 'DRF', 'React', 'MQTT', 'MySQL'],
+    image: '',
     featured: true,
-    links: { live: 'https://uprintbd.com', github: '', caseStudy: '' },
+    links: {},
   },
   {
-    title: 'Real-time SCADA Monitoring for RMG Factories',
-    category: 'Industrial IoT',
-    period: '2024 — Present',
-    summary:
-      'Production SCADA dashboards for ready-made-garment factory automation — live machine data over MQTT, role-based access and management reporting across multiple sites.',
-    highlights: [
-      'Real-time data flow from field devices to dashboards',
-      'RBAC dashboards for management and floor teams',
-      'Running in live production environments',
-    ],
-    tech: ['Django', 'React', 'MySQL', 'MQTT', 'DigitalOcean'],
-    image: '', // optional: '/images/projects/<name>.png'
-    featured: true,
-    links: { live: '', caseStudy: '' },
-  },
-  {
-    title: 'Water Treatment Plant (WTP) Monitoring System',
-    category: 'Industrial IoT',
-    period: '2025',
-    summary:
-      'A scalable monitoring platform for factory water treatment plants with real-time dashboards that improve operational oversight.',
-    highlights: ['Live sensor dashboards', 'Scalable backend architecture', 'Operational alerts & oversight'],
-    tech: ['Django', 'React', 'MQTT', 'MySQL'],
-    image: '', // optional: '/images/projects/<name>.png'
-    featured: true,
-    links: { live: '', caseStudy: '' },
-  },
-  {
-    title: 'KrishiBondhu — AI Farming Assistant for Bangladesh',
+    title: 'KrishiBondhu — AI Farming for Bangladesh',
     category: 'Mobile',
     summary:
-      'A context-aware Android app for farmers with a hybrid online/offline engine — real-time guidance via the Google Gemini API, falling back to a 12-month local database when the network drops.',
+      'An Android app giving farmers localised guidance on crop selection, disease prevention and irrigation, with a hybrid online/offline engine.',
     highlights: [
-      'GPS + calendar mapping for region-specific crop, disease and irrigation guidance',
-      'Material 3 UI with infographic dashboards and success stories',
-      'Asynchronous one-click refresh to optimise API calls',
+      'Live guidance via the Google Gemini API, with a 12-month local database as offline fallback',
+      'GPS and calendar mapping for region-specific advice',
+      'Material 3 interface with infographic dashboards and success stories',
     ],
     tech: ['Android', 'Gemini API', 'Material 3', 'Offline-first'],
-    image: '', // optional: '/images/projects/<name>.png'
+    image: '',
     featured: true,
-    links: { github: '', live: '' },
-  },
-  {
-    title: 'Ignite — Academic Result Management System',
-    category: 'Web',
-    summary:
-      'A digital result management system for the EEE Department, University of Chittagong, automating grading logic and administrative reporting.',
-    highlights: [
-      'Reduced manual errors, delays and data loss in result processing',
-      'Complex relational schema with multi-tier user permissions',
-      'Automated grading and reporting',
-    ],
-    tech: ['Python', 'Django', 'JavaScript', 'jQuery', 'Bootstrap', 'MySQL'],
-    image: '', // optional: '/images/projects/<name>.png'
-    featured: true,
+    aiAssisted: true,
     links: { github: '', live: '' },
   },
   {
     title: "Alzheimer's Disease Detection & Classification using CNN",
     category: 'AI / ML',
-    period: 'Jan 2022 — Feb 2024',
+    period: 'M.Sc. thesis',
     summary:
-      'M.Sc. thesis: a convolutional neural network for detecting and classifying Alzheimer’s disease from MRI scans.',
+      'Deep learning on brain MRI from the ADNI dataset to classify Alzheimer’s disease, mild cognitive impairment and cognitively normal cases — in binary and multiclass settings.',
     highlights: [
-      'Curated structured MRI datasets for robust training and evaluation',
-      'Developed and optimised a CNN-based classifier',
-      'Improved diagnostic efficiency via preprocessing and model optimisation',
+      'Prepared and cleaned the ADNI dataset',
+      'Built and evaluated CNN classifiers for binary and multiclass tasks',
+      'Tested, debugged and validated the implementation',
     ],
-    tech: ['Python', 'TensorFlow', 'CNN', 'Google Colab', 'Kaggle'],
-    image: '', // optional: '/images/projects/<name>.png'
+    tech: ['Python', 'TensorFlow', 'CNN', 'ADNI'],
+    image: '',
     featured: true,
+    aiAssisted: true,
     links: { paper: '', github: '' },
+  },
+  {
+    title: 'Smart Crop Recommendation System for Precision Agriculture',
+    category: 'AI / ML',
+    summary: 'An IoT and machine-learning system that recommends suitable crops to support precision agriculture.',
+    highlights: [
+      'Selected the problem and overall approach',
+      'Prepared the dataset and adapted the model',
+      'Integrated machine learning into the wider IoT system; ran experiments and validated results',
+    ],
+    tech: ['IoT', 'Machine Learning', 'Python'],
+    image: '',
+    featured: true,
+    aiAssisted: true,
+    links: { github: '' },
+  },
+  {
+    title: 'Lung Cancer Detection & Prediction',
+    category: 'AI / ML',
+    summary: 'Machine learning on CT images from the IQ-OTH/NCCD dataset for lung cancer detection and prediction.',
+    highlights: ['Prepared and cleaned the dataset', 'Ran experiments and evaluated models', 'Debugged and validated the implementation'],
+    tech: ['Python', 'Machine Learning', 'Medical Imaging'],
+    image: '',
+    featured: true,
+    aiAssisted: true,
+    links: { github: '' },
+  },
+  {
+    title: 'Ignite — Academic Result Management System',
+    category: 'Web',
+    summary:
+      'A digital result management application for the EEE Department, University of Chittagong, replacing error-prone manual result processing.',
+    highlights: ['Automated grading logic and administrative reporting', 'Relational database design', 'Multi-tier user permissions'],
+    tech: ['Python', 'Django', 'JavaScript', 'jQuery', 'Bootstrap', 'MySQL'],
+    image: '',
+    featured: true,
+    links: { github: '', live: '' },
   },
   {
     title: 'Blockchain-based Food Supply Chain',
     category: 'Research',
-    period: 'Oct 2019',
-    summary: 'Poster research on traceable food supply chains using blockchain — 2nd Runner-Up at IEEE Day 2019.',
-    highlights: ['Supply-chain traceability model', 'Presented at IEEE Day 2019'],
-    tech: ['Blockchain', 'Research'],
-    image: '', // optional: '/images/projects/<name>.png'
+    period: '2019',
+    summary: 'Poster on traceable food supply chains using blockchain — 2nd Runner-up at IEEE Day 2019.',
+    highlights: [],
+    tech: ['Blockchain'],
     links: { paper: '' },
   },
   {
-    title: 'iExplain — EdTech Course Platform',
+    title: 'iExplain',
     category: 'Web',
-    summary: 'A simple ed-tech course-selling platform.',
+    summary: 'An educational course-selling platform.',
     highlights: [],
     tech: ['HTML', 'CSS', 'Bootstrap'],
-    image: '', // optional: '/images/projects/<name>.png'
     links: { github: '', live: '' },
   },
   {
     title: 'Tick Your Pick',
     category: 'Web',
-    summary: 'Pick your best five football players — an interactive team-builder.',
+    summary: 'A football-player selection web app.',
     highlights: [],
-    tech: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
-    image: '', // optional: '/images/projects/<name>.png'
+    tech: ['HTML', 'CSS', 'JavaScript'],
     links: { github: '', live: '' },
   },
   {
-    title: 'Info House — News Portal',
+    title: 'Info House',
     category: 'Web',
-    summary: 'A news portal powered by an open news API.',
+    summary: 'A news portal built on an external news API.',
     highlights: [],
-    tech: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'REST API'],
-    image: '', // optional: '/images/projects/<name>.png'
+    tech: ['HTML', 'CSS', 'JavaScript', 'REST API'],
     links: { github: '', live: '' },
   },
 ];
 
+export const aiAssistedNote =
+  'Implemented with substantial help from AI coding tools. My work: problem framing, data preparation, integration, experiments, debugging and validation.';
+
+/* ────────────────────────────── Research ────────────────────────────── */
+
 export const research = {
+  title: 'Secure & Intelligent Cyber-Physical Systems',
   statement:
-    'Exploring the convergence of IoT, AI and Embedded Systems to develop secure, intelligent and human-centred cyber-physical systems for automation and smart environments.',
+    'I want to build secure, intelligent and practical systems that connect software to the physical world — and that can be deployed, not just demonstrated.',
   areas: [
-    { title: 'Industrial IoT & SCADA', text: 'MQTT-based telemetry, real-time monitoring and control for factories.' },
-    { title: 'Machine Learning', text: 'Deep learning for medical imaging and intelligent decision systems.' },
-    { title: 'Embedded Systems', text: 'Microcontroller and SBC-based devices bridging sensors to the cloud.' },
-    { title: 'Cyber-Physical Security', text: 'Access control and secure architectures for connected devices.' },
+    { title: 'Industrial IoT & OT Security', text: 'Industrial and operational-technology systems, secure device-to-cloud communication, and resilience.' },
+    { title: 'Edge AI & AIoT', text: 'Embedded intelligence on connected devices, including AIoT for precision agriculture.' },
+    { title: 'Anomaly & Intrusion Detection', text: 'AI-based detection of faults and attacks in cyber-physical systems.' },
+    { title: 'Digital Twins & Smart Manufacturing', text: 'Intelligent monitoring and modelling of production systems.' },
   ],
-  // Add papers here as you publish. Empty list shows a “coming soon” note.
+  broader: [
+    'Software Engineering',
+    'Systems Engineering',
+    'Artificial Intelligence',
+    'Robotics & Automation',
+    'Embedded Systems',
+    'Product Development',
+    'Sustainable Technology',
+  ],
+  // Only list work that has actually been published.
   publications: [] as { title: string; venue: string; year: string; authors: string; link?: string }[],
 };
 
-export type SkillGroup = { title: string; domain: 'software' | 'hardware' | 'tools'; items: string[] };
+/* ────────────────────────────── Skills ────────────────────────────── */
+
+export type SkillGroup = { title: string; items: string[] };
 
 export const skills: SkillGroup[] = [
-  { title: 'Languages', domain: 'software', items: ['Python', 'JavaScript', 'C', 'SQL', 'MATLAB', 'LaTeX'] },
-  {
-    title: 'Frameworks & Libraries',
-    domain: 'software',
-    items: ['Django', 'Django REST Framework', 'Flask', 'React.js', 'Tailwind CSS', 'Bootstrap', 'CoreUI Pro', 'jQuery'],
-  },
-  { title: 'Databases', domain: 'software', items: ['PostgreSQL', 'MySQL', 'SQLite'] },
-  {
-    title: 'Cloud & DevOps',
-    domain: 'software',
-    items: ['AWS', 'DigitalOcean VPS', 'Google Cloud', 'Nginx', 'Git', 'GitHub Actions', 'CI/CD', 'Linux (Ubuntu, Debian, Kali)'],
-  },
-  {
-    title: 'Architecture',
-    domain: 'software',
-    items: ['System Architecture', 'RESTful APIs', 'ERP Logic', 'RBAC', 'MQTT IoT Protocols', 'Real-time Systems'],
-  },
-  { title: 'Microcontrollers & IoT', domain: 'hardware', items: ['Raspberry Pi', 'Arduino', 'ESP32 / ESP8266', 'MQTT', 'IoT Kiosks'] },
-  { title: 'Electrical Design & Simulation', domain: 'hardware', items: ['PSpice', 'LTspice', 'DipTrace', 'Cisco Packet Tracer', 'MATLAB'] },
-  { title: 'AI / Data', domain: 'tools', items: ['TensorFlow', 'CNN', 'Google Colab', 'Kaggle', 'Gemini API'] },
-  { title: 'Design', domain: 'tools', items: ['Figma', 'Adobe XD', 'Illustrator', 'Photoshop'] },
-  { title: 'Project Management', domain: 'tools', items: ['Agile', 'Scrum', 'ClickUp', 'Sprint Planning', 'Client Consultation'] },
+  { title: 'Languages', items: ['Python', 'JavaScript', 'C', 'SQL', 'MATLAB', 'LaTeX'] },
+  { title: 'Backend', items: ['Django', 'Django REST Framework', 'Flask', 'REST APIs', 'Database design', 'Role-based access control'] },
+  { title: 'Frontend', items: ['React', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'jQuery'] },
+  { title: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQLite'] },
+  { title: 'IoT & Embedded', items: ['MQTT', 'Raspberry Pi', 'Arduino', 'ESP', 'Device-to-server communication', 'CUPS'] },
+  { title: 'AI / ML', items: ['CNNs', 'Image classification', 'Medical image analysis', 'Dataset preparation', 'Model evaluation', 'AI API integration'] },
+  { title: 'Cloud & DevOps', items: ['DigitalOcean', 'AWS', 'Google Cloud', 'Linux (Ubuntu)', 'Nginx', 'GitHub Actions', 'VPS deployment'] },
+  { title: 'Engineering tools', items: ['MATLAB', 'PSpice', 'LTspice', 'DipTrace', 'Cisco Packet Tracer'] },
+  { title: 'Other tools', items: ['Git', 'GitHub', 'Google Colab', 'Kaggle', 'Figma', 'Adobe XD', 'Illustrator', 'Photoshop'] },
 ];
 
-export type AwardItem = { title: string; org: string; date: string; detail?: string; kind: 'grant' | 'award' | 'scholarship' | 'rank' };
+/* ────────────────────────────── Education ────────────────────────────── */
+
+export type Education = {
+  degree: string;
+  institution: string;
+  years: string;
+  result: string;
+  note?: string;
+};
+
+export const education: Education[] = [
+  {
+    degree: 'M.Sc. Engineering in Electrical & Electronic Engineering',
+    institution: 'University of Chittagong',
+    years: '2022 — 2024',
+    result: 'CGPA 3.03 / 4.00',
+    note: "Thesis: Alzheimer's Disease Detection & Classification using CNNs (thesis grade A).",
+  },
+  {
+    degree: 'B.Sc. Engineering in Electrical & Electronic Engineering',
+    institution: 'University of Chittagong',
+    years: '2017 — 2023',
+    result: 'CGPA 3.04 / 4.00',
+  },
+  {
+    degree: 'Higher Secondary Certificate (HSC)',
+    institution: 'Chittagong College, Chittagong',
+    years: '2015',
+    result: 'GPA 5.00 / 5.00',
+  },
+  {
+    degree: 'Secondary School Certificate (SSC)',
+    institution: 'Nasirabad Govt. High School, Chittagong',
+    years: '2013',
+    result: 'GPA 5.00 / 5.00',
+  },
+];
+
+/* ────────────────────────────── Awards ────────────────────────────── */
+
+export type AwardItem = { title: string; org: string; date: string; detail?: string };
 
 export const awards: AwardItem[] = [
   {
     title: 'ICT Innovation Grant',
     org: 'Ministry of ICT, Government of Bangladesh',
-    date: 'Jul 2023',
-    detail: 'Awarded for “A Distributed Cloud Printing Service” — the idea behind UprintBD.',
-    kind: 'grant',
+    date: 'Jun 2023',
+    detail: 'Awarded to me for the project “Distributed Cloud Printing Service” (FY 2022–23), which became UprintBD.',
   },
+  { title: 'Champion — Project Showcasing', org: 'EEE Fest, Dept. of EEE, University of Chittagong', date: '2023' },
+  { title: 'Runner-up — Startup Idea Competition', org: 'EEE Fest, Dept. of EEE, University of Chittagong', date: '2023' },
+  { title: "Master's Honorarium Scholarship", org: 'University of Chittagong', date: '2021' },
   {
-    title: 'Champion — Project Showcasing',
-    org: 'EEE Fest 2023, Dept. of EEE, University of Chittagong',
-    date: 'Feb 2023',
-    kind: 'award',
-  },
-  {
-    title: 'Runner-Up — Startup Idea Competition',
-    org: 'EEE Fest 2023, Dept. of EEE, University of Chittagong',
-    date: 'Feb 2023',
-    kind: 'award',
-  },
-  {
-    title: "Masters' Honorarium Scholarship",
-    org: 'University of Chittagong',
-    date: 'Mar 2021',
-    detail: 'Scholarship with stipend.',
-    kind: 'scholarship',
-  },
-  {
-    title: '2nd Runner-Up — Poster Presentation',
-    org: 'IEEE Day 2019, IEEE Student Branch, University of Chittagong',
+    title: '2nd Runner-up — Poster Presentation',
+    org: 'IEEE Day, IEEE Student Branch, University of Chittagong',
     date: 'Oct 2019',
-    detail: 'Title: Blockchain based Food Supply Chain.',
-    kind: 'award',
+    detail: '“Blockchain Based Food Supply Chain”.',
   },
-  {
-    title: '62nd — Open Category, Online Physics Brawl',
-    org: 'Faculty of Mathematics and Physics, Charles University',
-    date: '', // TODO: add year
-    kind: 'rank',
-  },
+  { title: '62nd place — Open Category, Physics Brawl', org: 'Faculty of Mathematics and Physics, Charles University', date: '' },
 ];
 
-export type Leadership = { role: string; org: string; start: string; end: string; logo?: string; detail?: string };
+/* ──────────────────────── Leadership & activities ──────────────────────── */
+
+export type Leadership = { role: string; org: string; start: string; end: string; logo?: string };
 
 export const leadership: Leadership[] = [
-  {
-    role: 'Chairperson',
-    org: 'IEEE Student Branch, University of Chittagong',
-    start: 'Mar 2021',
-    end: 'Jun 2022',
-    logo: '/images/logos/ieee-sb-cu.jpg',
-  },
-  {
-    role: 'Ambassador',
-    org: 'IEEEXtreme 15.0',
-    start: 'Mar 2021',
-    end: 'Oct 2021',
-  },
-  {
-    role: 'General Secretary',
-    org: 'Chittagong University Robotics & Innovation Club (CURI)',
-    start: 'Apr 2019',
-    end: 'Nov 2021',
-    logo: '/images/logos/curi.png',
-  },
-  {
-    role: 'Regional Coordinator',
-    org: 'Bangladesh Olympiad on Astronomy and Astrophysics',
-    start: 'Sep 2019',
-    end: 'Feb 2022',
-    logo: '/images/logos/bdoaa.png',
-  },
-  {
-    role: 'Academic Team Member',
-    org: 'Bangladesh National Physics Olympiad',
-    start: 'Mar 2019',
-    end: 'Feb 2024',
-    logo: '/images/logos/bdpho.png',
-  },
-  {
-    role: 'Working Committee Member',
-    org: 'Dream Foundation, Bangladesh',
-    start: 'Oct 2018',
-    end: 'Sep 2019',
-    logo: '/images/logos/dream-foundation.jpg',
-  },
+  { role: 'Chairperson', org: 'IEEE Student Branch, University of Chittagong', start: 'Mar 2021', end: 'Jun 2022', logo: '/images/logos/ieee-sb-cu.jpg' },
+  { role: 'Ambassador', org: 'IEEEXtreme 15.0', start: 'Mar 2021', end: 'Oct 2021' },
+  { role: 'General Secretary', org: 'Chittagong University Robotics & Innovation Club', start: 'Apr 2019', end: 'Nov 2021', logo: '/images/logos/curi.png' },
+  { role: 'Regional Coordinator', org: 'Bangladesh Olympiad on Astronomy and Astrophysics', start: 'Sep 2019', end: 'Feb 2022', logo: '/images/logos/bdoaa.png' },
+  { role: 'Academic Team Member', org: 'Bangladesh National Physics Olympiad', start: 'Mar 2019', end: 'Feb 2024', logo: '/images/logos/bdpho.png' },
+  { role: 'Working Committee Member', org: 'Dream Foundation, Bangladesh', start: 'Oct 2018', end: 'Sep 2019', logo: '/images/logos/dream-foundation.jpg' },
 ];
 
 export const volunteering = [
   { role: 'Team Leader & Organizer', org: 'Engineering Day 2019 & 2022, Faculty of Engineering, University of Chittagong', date: '2019, 2022' },
-  { role: 'Volunteer', org: 'Bangladesh Physics Olympiad — National & Chittagong Divisional Rounds', date: '' },
-  { role: 'Volunteer', org: 'APECE Project Competition 2017, Dept. of EEE, University of Chittagong', date: '2017' },
+  { role: 'Volunteer', org: 'Bangladesh Physics Olympiad — national and divisional rounds', date: '' },
+  { role: 'Volunteer', org: 'APECE Project Competition 2017', date: '2017' },
 ];
 
 export const training = [
   {
-    title: 'Industrial Control Technology on Instrumentation & Electrical Engineering',
+    title: 'Industrial Control Technology on Electrical Engineering & Instrumentation',
     org: 'Ghorashal Training Center, Bangladesh Power Development Board',
-    date: 'Oct 2021 — Nov 2021',
-    detail: 'Power plant control systems and operational procedures.',
+    date: 'Oct — Nov 2021',
   },
   {
-    title: 'Telephone Communication System',
+    title: 'Telephone Communication Systems',
     org: 'Chittagong University Telephone Exchange Center',
     date: 'Mar 2020',
-    detail: 'Hands-on exposure to telephone exchange operations, with a technical report.',
   },
 ];
 

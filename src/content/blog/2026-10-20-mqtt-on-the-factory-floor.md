@@ -1,8 +1,8 @@
 ---
-title: MQTT on the factory floor — notes from building real-time SCADA dashboards
+title: MQTT on the factory floor — notes on real-time production monitoring
 date: 2026-10-20
 category: Article
-tags: [iot, mqtt, scada, django]
+tags: [iot, mqtt, monitoring, django]
 excerpt: A template article showing how code, tables and diagrams render. Replace it with your own write-up.
 sample: true
 ---

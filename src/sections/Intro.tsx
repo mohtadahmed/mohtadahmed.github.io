@@ -73,7 +73,7 @@ export default function Intro() {
         <span className="flex items-center gap-1.5">
           <MapPin className="h-3.5 w-3.5" /> {profile.location}
         </span>
-        {current.length > 0 && <span>Now: {current.map((c) => c.org.replace(/\s*\(.*\)$/, '')).join(' · ')}</span>}
+        {current.length > 0 && <span>Now: {current.map((c) => c.orgShort ?? c.org).join(' · ')}</span>}
       </div>
 
       <div className="mt-8 flex flex-wrap items-center gap-3 animate-fadeUp [animation-delay:320ms]">

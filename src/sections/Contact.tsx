@@ -18,7 +18,7 @@ export default function Contact() {
   };
 
   return (
-    <Section id="contact" index="11" title="Contact">
+    <Section id="contact" index="12" title="Contact">
       <Reveal>
         <p className="max-w-xl leading-relaxed text-muted">
           Have a project, a research idea or a teaching opportunity — or just want to talk IoT and automation? I'd love to hear
@@ -41,9 +41,6 @@ export default function Contact() {
           </button>
         </div>
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
-          <a href={`tel:${profile.phoneHref}`} className="link">
-            {profile.phone}
-          </a>
           <span>{profile.location}</span>
         </div>
         <SocialLinks className="mt-6" withEmail={false} />

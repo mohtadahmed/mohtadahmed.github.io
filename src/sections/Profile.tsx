@@ -6,9 +6,10 @@ import Row from '@/components/Row';
 
 export function Research() {
   return (
-    <Section id="research" index="04" title="Research">
+    <Section id="research" index="05" title="Research interests">
       <Reveal>
-        <p className="leading-relaxed text-muted">{research.statement}</p>
+        <p className="font-medium">{research.title}</p>
+        <p className="mt-2 leading-relaxed text-muted">{research.statement}</p>
       </Reveal>
       <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2">
         {research.areas.map((a, i) => (
@@ -21,9 +22,19 @@ export function Research() {
         ))}
       </div>
       <Reveal>
+        <p className="label mb-3 mt-10">Broader interests</p>
+        <div className="flex flex-wrap gap-2">
+          {research.broader.map((b) => (
+            <span key={b} className="rounded-full border border-line px-3 py-1 text-sm text-muted transition-colors hover:border-accent/40 hover:text-fg">
+              {b}
+            </span>
+          ))}
+        </div>
+      </Reveal>
+      <Reveal>
         <p className="label mb-2 mt-10">Publications</p>
         {research.publications.length === 0 ? (
-          <p className="text-sm text-subtle">In progress — papers will be listed here.</p>
+          <p className="text-sm text-subtle">None yet — published work will be listed here.</p>
         ) : (
           <ul className="divide-y divide-line">
             {research.publications.map((p) => (
@@ -50,15 +61,15 @@ export function Research() {
 
 export function Skills() {
   return (
-    <Section id="skills" index="05" title="Skills">
+    <Section id="skills" index="06" title="Skills">
       <div className="divide-y divide-line">
         {skills.map((g, i) => (
           <Row key={g.title} delay={i * 30} meta={g.title}>
-            <p className="text-sm leading-relaxed text-muted">
+            <p className="flex flex-wrap gap-y-1 text-sm leading-relaxed text-muted">
               {g.items.map((s, j) => (
-                <span key={s}>
-                  <span className="whitespace-nowrap transition-colors hover:text-fg">{s}</span>
-                  {j < g.items.length - 1 && <span className="mx-2 text-line">/</span>}
+                <span key={s} className="whitespace-nowrap">
+                  <span className="transition-colors hover:text-fg">{s}</span>
+                  {j < g.items.length - 1 && <span className="mx-2 text-subtle/50">/</span>}
                 </span>
               ))}
             </p>
@@ -71,7 +82,7 @@ export function Skills() {
 
 export function Awards() {
   return (
-    <Section id="awards" index="06" title="Awards">
+    <Section id="awards" index="07" title="Awards">
       <div className="divide-y divide-line">
         {awards.map((a, i) => (
           <Row key={a.title} delay={i * 40} meta={a.date || '—'}>
@@ -108,7 +119,7 @@ function MiniList({ title, items }: { title: string; items: { a: string; b: stri
 
 export function Leadership() {
   return (
-    <Section id="leadership" index="07" title="Leadership & Activities">
+    <Section id="leadership" index="08" title="Leadership & Activities">
       <div className="divide-y divide-line">
         {leadership.map((l, i) => (
           <Row key={l.role + l.org} delay={i * 40} meta={`${l.start} — ${l.end}`}>
@@ -139,10 +150,10 @@ export function Leadership() {
 
 export function Education() {
   return (
-    <Section id="education" index="08" title="Education">
+    <Section id="education" index="09" title="Education">
       <div className="divide-y divide-line">
         {education.map((e, i) => (
-          <Row key={e.degree} delay={i * 40} meta={e.start ? `${e.start} — ${e.end}` : e.end}>
+          <Row key={e.degree} delay={i * 40} meta={e.years}>
             <h3 className="font-medium">{e.degree}</h3>
             <p className="text-sm text-muted">
               {e.institution} <span className="text-subtle">·</span> <span className="font-mono text-xs">{e.result}</span>
